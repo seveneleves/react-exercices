@@ -1,0 +1,15 @@
+.navbar {
+  border-bottom: 1px solid lightgray;
+}
+
+#navbrand-logo {
+  height: 35px;
+  width: 100%;
+}
+
+.navbar-nav a {
+  width: 80px;
+  padding: 5px 0px;
+  text-decoration: none;
+  color: gray;
+}
