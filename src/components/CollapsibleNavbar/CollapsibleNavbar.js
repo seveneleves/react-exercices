@@ -21,6 +21,7 @@ const CollapsibleNavbar = () => {
         <NavLink to="/">
           <img
             id="navbrand-logo"
+            alt="React logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
           />
         </NavLink>

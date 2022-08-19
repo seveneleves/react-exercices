@@ -3,10 +3,12 @@
 }
 
 #navbrand-logo {
-  height: 35px;
   width: 100%;
+  max-width: 40px;
+  height: auto;
 }
 
+/* Définition du style par défaut pout les lien NavLink */
 .navbar-nav a {
   width: 80px;
   padding: 5px 0px;

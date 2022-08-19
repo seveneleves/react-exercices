@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import CollapsibleNavbar from "../components/CollapsibleNavbar";
+import CollapsibleNavbar from "../components/CollapsibleNavbar/CollapsibleNavbar";
 import Container from "react-bootstrap/Container";
 
 const Home = () => {
   return (
     <Fragment>
       <CollapsibleNavbar />
-      <Container className="px-4 mt-3 px-sm-0">
+      <Container className="px-4 my-3 px-sm-0">
         <h1 className="mb-3">Accueil</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

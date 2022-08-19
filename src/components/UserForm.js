@@ -73,7 +73,7 @@ const UserForm = () => {
           )
         }
         variant="primary"
-        type="submit"
+        type="button"
       >
         Se connecter
       </Button>
