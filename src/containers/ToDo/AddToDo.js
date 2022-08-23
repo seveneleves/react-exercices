@@ -9,10 +9,12 @@ const AddToDo = () => {
 
   const [newToDo, setNewToDo] = useState("");
 
+  // Gestionnaire d'événement: édition du description de la tâche dans l'élement de saisie
   const handleChange = (e) => {
     setNewToDo(e.target.value);
   };
 
+  // Gestionnaire d'événement: sauvegarde de la tâche dans le localStorage
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem(

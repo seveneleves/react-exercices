@@ -16,10 +16,12 @@ const EditToDo = () => {
     setEditedToDoDescription(toDo.description);
   }, [todoId]);
 
+  // Gestionnaire d'événement: édition du descriptif de la tâche dans l'élement de saisie
   const handleChange = (e) => {
     setEditedToDoDescription(e.target.value);
   };
 
+  // Gestionnaire d'événement: mise à jour de la description la ToDo dans le state et le localStorage
   const handleSubmit = (e) => {
     e.preventDefault();
     const editedToDo = {

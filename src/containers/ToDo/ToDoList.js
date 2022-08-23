@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 const ToDos = () => {
   const [toDos, setToDos] = useState(null);
 
+  // Récupère les objets stockés dans localStorage et les écrit dans toDos dans par ordre de création
+  // (timestamp).
   useEffect(() => {
     let toDosIds = Object.keys(localStorage);
     let totalOfToDos = [];
@@ -19,6 +21,7 @@ const ToDos = () => {
     setToDos(totalOfToDos.sort((a, b) => a.item.timestamp - b.item.timestamp));
   }, []);
 
+  // Mise à jour de la tâche (à faire/terminée) dans le state et le localStorage
   const checkToDo = (id) => {
     const updatedToDoList = toDos.map((el) => {
       if (el.id === id) {
@@ -33,6 +36,7 @@ const ToDos = () => {
     setToDos(updatedToDoList);
   };
 
+  // Suppression de la tâche dans le state et le localStorage
   const deleteToDo = (id) => {
     setToDos(toDos.filter((el) => el.id !== id));
     localStorage.removeItem(id);
@@ -48,6 +52,7 @@ const ToDos = () => {
             Ajouter une tâche
           </Button>
         </Link>
+        {/* Affiche un Spinner tant que toDos est null. Sinon, affiche le composant ToDoTable */}
         {!toDos ? (
           <Spinner className="mt-4" animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
