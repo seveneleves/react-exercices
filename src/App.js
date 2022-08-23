@@ -1,16 +1,21 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./containers/Home";
+import ToDoList from "./containers/ToDo/ToDoList";
+import AddToDo from "./containers/ToDo/AddToDo";
+import EditToDo from "./containers/ToDo/EditToDo";
 import LogIn from "./containers/LogIn";
-import ToDo from "./containers/ToDo";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path="todo">
+          <Route index element={<ToDoList />} />
+          <Route path="add" element={<AddToDo />} />
+          <Route path="edit/:todoId" element={<EditToDo />} />
+        </Route>
         <Route path="/connexion" element={<LogIn />} />
-        <Route path="/todo" element={<ToDo />} />
       </Routes>
     </BrowserRouter>
   );

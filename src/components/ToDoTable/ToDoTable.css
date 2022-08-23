@@ -1,0 +1,19 @@
+tr th:first-child {
+  width: 50px;
+}
+
+tr td:last-child {
+  width: 100px;
+}
+
+.bi-pencil-fill {
+  color: #6b7280;
+}
+
+.bi-trash3-fill {
+  color: #ef4444;
+}
+
+.bi-trash3-fill:hover {
+  cursor: pointer;
+}
