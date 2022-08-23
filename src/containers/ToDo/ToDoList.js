@@ -19,6 +19,20 @@ const ToDos = () => {
     setToDos(totalOfToDos.sort((a, b) => a.item.timestamp - b.item.timestamp));
   }, []);
 
+  const checkToDo = (id) => {
+    const updatedToDoList = toDos.map((el) => {
+      if (el.id === id) {
+        localStorage.setItem(
+          el.id,
+          JSON.stringify({ ...el.item, isDone: !el.item.isDone })
+        );
+        return { ...el, item: { ...el.item, isDone: !el.item.isDone } };
+      }
+      return el;
+    });
+    setToDos(updatedToDoList);
+  };
+
   const deleteToDo = (id) => {
     setToDos(toDos.filter((el) => el.id !== id));
     localStorage.removeItem(id);
@@ -39,7 +53,11 @@ const ToDos = () => {
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         ) : toDos.length > 0 ? (
-          <ToDoTable toDos={toDos} deleteToDo={deleteToDo} />
+          <ToDoTable
+            toDos={toDos}
+            checkToDo={checkToDo}
+            deleteToDo={deleteToDo}
+          />
         ) : (
           <p className="mt-4">Rien à afficher pour le moment.</p>
         )}

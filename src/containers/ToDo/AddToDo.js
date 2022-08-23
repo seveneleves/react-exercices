@@ -17,7 +17,11 @@ const AddToDo = () => {
     e.preventDefault();
     localStorage.setItem(
       nanoid(),
-      JSON.stringify({ description: newToDo, timestamp: Date.now() })
+      JSON.stringify({
+        description: newToDo,
+        timestamp: Date.now(),
+        isDone: false,
+      })
     );
     navigate("/todo");
   };

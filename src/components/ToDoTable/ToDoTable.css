@@ -1,9 +1,22 @@
-tr th:first-child {
-  width: 50px;
+tbody tr:first-child {
+  border-top: 1px solid rgb(222, 226, 230);
+}
+
+tr td {
+  padding: 12px !important;
+}
+
+tr td:first-child {
+  width: 30px;
 }
 
 tr td:last-child {
-  width: 100px;
+  width: 90px;
+}
+
+.bi-circle:hover,
+.bi-check-circle-fill:hover {
+  cursor: pointer;
 }
 
 .bi-pencil-fill {

@@ -2,25 +2,37 @@ import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import "./ToDoTable.css";
 
-const ToDoTable = ({ toDos, deleteToDo }) => {
+const ToDoTable = ({ toDos, checkToDo, deleteToDo }) => {
   return (
-    <Table className="mt-4" striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>A faire</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
+    <Table className="mt-4" striped hover>
       <tbody>
         {toDos.map((e) => (
-          <tr key={e.id}>
-            <td>{toDos.findIndex((t) => t.id === e.id) + 1}</td>
-            <td>{e.item.description}</td>
+          <tr
+            className={`d-flex ${
+              e.item.isDone ? "text-decoration-line-through" : ""
+            }`}
+            key={e.id}
+          >
             <td>
-              <Link to={`edit/${e.id}`}>
-                <i className="bi bi-pencil-fill"></i>
-              </Link>
+              <i
+                onClick={() => checkToDo(e.id)}
+                className={`bi ${
+                  e.item.isDone ? "bi-check-circle-fill" : "bi-circle"
+                }`}
+              ></i>
+            </td>
+            <td className="flex-grow-1">
+              {toDos.findIndex((t) => t.id === e.id) +
+                1 +
+                ". " +
+                e.item.description}
+            </td>
+            <td className="d-flex justify-content-end">
+              {e.item.isDone ? null : (
+                <Link to={`edit/${e.id}`}>
+                  <i className="ms-3 bi bi-pencil-fill"></i>
+                </Link>
+              )}
               <i
                 onClick={() => deleteToDo(e.id)}
                 className="ms-3 bi bi-trash3-fill"
